@@ -2,7 +2,7 @@ package Photography::EV;
 
 use strict;
 use warnings;
-use v5.20;
+use 5.020000;
 use feature 'signatures';
 no warnings 'experimental::signatures';
 use base qw( Exporter );

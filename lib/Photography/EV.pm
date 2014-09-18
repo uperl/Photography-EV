@@ -45,7 +45,7 @@ sub _log2 ($)
  my $ev = ev($aperture, $time);
 
 Takes the aperture (f-stop) and shutter speed (in seconds).
-Returns the Exposure Value (EV).
+Returns the integer Exposure Value (EV).
 
 =cut
 

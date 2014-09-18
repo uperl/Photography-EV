@@ -30,7 +30,7 @@ aperture to maintain the same exposure.
 
 sub _round ($)
 {
-  $_[0] ? int($_[0] + $_[0]/abs($_[0]*2)) : 0;
+  return $_[0] ? int($_[0] + $_[0]/abs($_[0]*2)) : 0;
 }
 
 sub _log2 ($)
@@ -51,7 +51,7 @@ Returns the Exposure Value (EV).
 
 sub ev ($aperture, $time)
 {
-  _round _log2 $aperture*$aperture/$time;
+  return _round _log2 $aperture*$aperture/$time;
 }
 
 1;

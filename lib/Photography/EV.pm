@@ -21,10 +21,11 @@ our @EXPORT = @EXPORT_OK;
 =head1 DESCRIPTION
 
 This module provides functions for calculating photographic
-exposure values.  On some cameras the exposure can be locked
-into a specific Exposure Value (EV), such that changing the
-aperture or shutter speed will adjust the shutter speed or
-aperture to maintain the same exposure.
+exposure values.  Some light meters can give readings in 
+"Exposure Value" or EV.  On some cameras the exposure can 
+be locked into a specific Exposure Value (EV), such that 
+changing the aperture or shutter speed will adjust the 
+shutter speed or aperture to maintain the same exposure.
 
 =cut
 

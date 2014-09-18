@@ -58,7 +58,7 @@ sub ev ($aperture, $time)
 
 =head1 CAVEATS
 
-This module requires Perl 5.20.
+This module requires Perl 5.20 or better.
 
 =head1 SEE ALSO
 

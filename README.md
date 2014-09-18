@@ -26,7 +26,7 @@ Returns the integer Exposure Value (EV).
 
 # CAVEATS
 
-This module requires Perl 5.20.
+This module requires Perl 5.20 or better.
 
 # SEE ALSO
 

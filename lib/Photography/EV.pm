@@ -56,6 +56,10 @@ sub ev ($aperture, $time)
 
 1;
 
+=head1 CAVEATS
+
+This module requires Perl 5.20.
+
 =head1 SEE ALSO
 
 =over 4

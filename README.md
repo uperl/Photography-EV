@@ -24,6 +24,10 @@ aperture to maintain the same exposure.
 Takes the aperture (f-stop) and shutter speed (in seconds).
 Returns the integer Exposure Value (EV).
 
+# CAVEATS
+
+This module requires Perl 5.20.
+
 # SEE ALSO
 
 - http://en.wikipedia.org/wiki/Exposure\_value

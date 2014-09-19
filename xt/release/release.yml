@@ -6,6 +6,7 @@ pod_spelling_system:
   stopwords:
     - ev
     - EV
+    - Nikkor
 
 pod_coverage:
   skip: 0

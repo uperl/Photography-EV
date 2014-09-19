@@ -8,7 +8,7 @@ no warnings 'experimental::signatures';
 use base qw( Exporter );
 use POSIX qw( pow );
 
-our @EXPORT_OK = qw( ev aperture );
+our @EXPORT_OK = qw( ev aperture shutter_speed );
 our @EXPORT = @EXPORT_OK;
 
 # ABSTRACT: Calculate exposure value (EV)
@@ -59,6 +59,27 @@ sub _closest :prototype($$)
   $answer;
 }
 
+my @apertures = qw(
+  1.0
+  1.4
+  2.8
+  4.0
+  5.6
+  8.0
+  11
+  16
+  22
+  32
+  45
+  64
+);
+
+my @times = (
+  (map { $_ * 60 } qw( 32 16 8 4 2 )),
+  (                qw( 60 30 15 8 4 2 1)),
+  (map { 1 / $_  } qw( 2 4 8 15 30 125 250 500 1000 2000 4000 8000 ))
+);
+
 =head1 FUNCTIONS
 
 =head2 ev
@@ -74,21 +95,6 @@ sub ev ($aperture, $time)
 {
   return _round _log2 $aperture*$aperture/$time;
 }
-
-my @apertures = qw(
-  1.0
-  1.4
-  2.8
-  4.0
-  5.6
-  8.0
-  11
-  16
-  22
-  32
-  45
-  64
-);
 
 =head2 aperture
 
@@ -114,6 +120,33 @@ f/5.6, f/8, f/11 and f/16, so to get the correct aperture for
 sub aperture ($ev, $time, $apertures = \@apertures )
 {
   return _closest sqrt pow(2, $ev)*$time, $apertures;
+}
+
+=head2 shutter_speed
+
+ my $time = shutter_speed($ev, $aperture);
+ my $time = shutter_speed($ev, $aperture, \@times);
+
+Returns the correct shutter speed (in seconds) corresponding to
+the given EV and aperture.  By default returns the closest
+full stop between 1920s (32 minutes) and 1/8000s.
+
+If the optional third argument is given (a reference to a list
+of possible shutter speeds), then the returned shutter speed
+will be the closest possible from that list.  This is helpful
+for older cameras that have a different set of shutter speed
+stops, or newer cameras that use half stop shutter speeds.
+At least some Rolleiflex TLRs have shutter speeds of 2, 5, 10,
+25, 50, 100, 250, 500 instead of the modern values.  To get
+the correct shutter speed for f/3.5 and EV 5:
+
+ my $time = shutter_speed(5, 3.5, [2, 5, 10, 25, 50, 100, 250, 500]);
+
+=cut
+
+sub shutter_speed ($ev, $aperture, $times = \@times )
+{
+  return _closest $aperture*$aperture/pow(2, $ev), $times;
 }
 
 1;

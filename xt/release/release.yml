@@ -7,6 +7,8 @@ pod_spelling_system:
     - ev
     - EV
     - Nikkor
+    - Rolleiflex
+    - TLRs
 
 pod_coverage:
   skip: 0

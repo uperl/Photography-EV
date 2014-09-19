@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - fix example in documentation
 
 0.01      2014-09-19 09:43:12 -0400
   - initial version

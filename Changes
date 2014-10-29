@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.04      2014-10-29 11:33:11 -0400
   - use pure perl pow if POSIX is not available
 
 0.03      2014-10-29 07:52:17 -0400

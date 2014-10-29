@@ -6,7 +6,24 @@ use 5.020000;
 use feature 'signatures';
 no warnings 'experimental::signatures';
 use base qw( Exporter );
-use POSIX qw( pow );
+BEGIN {
+  eval q{ 
+    use POSIX qw( pow );
+  };
+  if($@)
+  {
+    sub pow ($x, $exponent)
+    {
+      my $value = 1;
+      for(1..$exponent)
+      {
+        $value *= $x;
+      }
+      $value;
+    }
+  }
+}
+  
 
 our @EXPORT_OK = qw( ev aperture shutter_speed );
 our @EXPORT = @EXPORT_OK;
@@ -155,9 +172,6 @@ sub shutter_speed ($ev, $aperture, $times = \@times )
 =head1 CAVEATS
 
 This module requires Perl 5.20 or better.
-
-This modules doesn't use any non-core modules, but it does use L<POSIX>, which
-may not be available everywhere.
 
 =head1 SEE ALSO
 

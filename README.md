@@ -69,9 +69,6 @@ the correct shutter speed for f/3.5 and EV 5:
 
 This module requires Perl 5.20 or better.
 
-This modules doesn't use any non-core modules, but it does use [POSIX](https://metacpan.org/pod/POSIX), which
-may not be available everywhere.
-
 # SEE ALSO
 
 - http://en.wikipedia.org/wiki/Exposure\_value

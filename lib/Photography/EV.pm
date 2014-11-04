@@ -12,7 +12,7 @@ BEGIN {
   };
   if($@)
   {
-    sub pow ($x, $exponent)
+    *pow = sub ($x, $exponent)
     {
       my $value = 1;
       for(1..$exponent)

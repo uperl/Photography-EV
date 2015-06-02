@@ -177,7 +177,9 @@ This module requires Perl 5.20 or better.
 
 =over 4
 
-=item http://en.wikipedia.org/wiki/Exposure_value
+=item L<http://en.wikipedia.org/wiki/Exposure_value>
+
+=item L<Photography::DX>
 
 =back
 

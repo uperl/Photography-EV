@@ -71,7 +71,8 @@ This module requires Perl 5.20 or better.
 
 # SEE ALSO
 
-- http://en.wikipedia.org/wiki/Exposure\_value
+- [http://en.wikipedia.org/wiki/Exposure\_value](http://en.wikipedia.org/wiki/Exposure_value)
+- [Photography::DX](https://metacpan.org/pod/Photography::DX)
 
 # AUTHOR
 

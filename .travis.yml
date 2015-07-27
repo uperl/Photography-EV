@@ -1,5 +1,7 @@
 language: perl
 
+sudo: false
+
 install:
   - /bin/true
 

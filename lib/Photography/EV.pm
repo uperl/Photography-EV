@@ -3,8 +3,7 @@ package Photography::EV;
 use strict;
 use warnings;
 use 5.020000;
-use feature 'signatures';
-no warnings 'experimental::signatures';
+use experimental 'signatures';
 use base qw( Exporter );
 BEGIN {
   eval q{ 

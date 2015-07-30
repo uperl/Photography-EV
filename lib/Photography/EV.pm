@@ -1,34 +1,32 @@
-package Photography::EV;
+package Photography::EV {
 
-use strict;
-use warnings;
-use 5.020000;
-use experimental 'signatures';
-use base qw( Exporter );
-BEGIN {
-  eval q{ 
-    use POSIX qw( pow );
-  };
-  if($@)
-  {
-    *pow = sub ($x, $exponent)
+  use strict;
+  use warnings;
+  use 5.020000;
+  use experimental 'signatures';
+  use base qw( Exporter );
+  BEGIN {
+    eval q{ 
+      use POSIX qw( pow );
+    };
+    if($@)
     {
-      my $value = 1;
-      for(1..$exponent)
+      *pow = sub ($x, $exponent)
       {
-        $value *= $x;
+        my $value = 1;
+        for(1..$exponent)
+        {
+          $value *= $x;
+        }
+        $value;
       }
-      $value;
     }
   }
-}
-  
 
-our @EXPORT_OK = qw( ev aperture shutter_speed );
-our @EXPORT = @EXPORT_OK;
+  our @EXPORT_OK = qw( ev aperture shutter_speed );
+  our @EXPORT = @EXPORT_OK;
 
 # ABSTRACT: Calculate exposure value (EV)
-# VERSION
 
 =head1 SYNOPSIS
 
@@ -46,55 +44,55 @@ shutter speed or aperture to maintain the same exposure.
 
 =cut
 
-sub _round :prototype($)
-{
-  return $_[0] ? int($_[0] + $_[0]/abs($_[0]*2)) : 0;
-}
-
-sub _log2 :prototype($)
-{
-  return log($_[0])/log(2);
-}
-
-# returns the closest value in @$list to $exact
-# returns undef if @$list is empty
-sub _closest :prototype($$)
-{
-  my($exact, $list) = @_;
-  my $answer;
-  my $diff;
-  for(@$list)
+  sub _round :prototype($)
   {
-    my $maybe = abs($_ - $exact);
-    if((!defined $answer) || $maybe < $diff)
-    {
-      $answer = $_;
-      $diff = $maybe;
-    }
+    return $_[0] ? int($_[0] + $_[0]/abs($_[0]*2)) : 0;
   }
-  $answer;
-}
 
-my @apertures = qw(
-  1.0
-  1.4
-  2.8
-  4.0
-  5.6
-  8.0
-  11
-  16
-  22
-  32
-  45
-  64
-);
+  sub _log2 :prototype($)
+  {
+    return log($_[0])/log(2);
+  }
 
-my @times = (
-  (map { $_ * 60 } qw( 32 16 8 4 2 )),
-  (                qw( 60 30 15 8 4 2 1)),
-  (map { 1 / $_  } qw( 2 4 8 15 30 125 250 500 1000 2000 4000 8000 ))
-);
+  # returns the closest value in @$list to $exact
+  # returns undef if @$list is empty
+  sub _closest :prototype($$)
+  {
+    my($exact, $list) = @_;
+    my $answer;
+    my $diff;
+    for(@$list)
+    {
+      my $maybe = abs($_ - $exact);
+      if((!defined $answer) || $maybe < $diff)
+      {
+        $answer = $_;
+        $diff = $maybe;
+      }
+    }
+    $answer;
+  }
+
+  my @apertures = qw(
+    1.0
+    1.4
+    2.8
+    4.0
+    5.6
+    8.0
+    11
+    16
+    22
+    32
+    45
+    64
+  );
+
+  my @times = (
+    (map { $_ * 60 } qw( 32 16 8 4 2 )),
+    (                qw( 60 30 15 8 4 2 1)),
+    (map { 1 / $_  } qw( 2 4 8 15 30 125 250 500 1000 2000 4000 8000 ))
+  );
 
 =head1 FUNCTIONS
 
@@ -107,10 +105,10 @@ Returns the integer Exposure Value (EV).
 
 =cut
 
-sub ev ($aperture, $time)
-{
-  return _round _log2 $aperture*$aperture/$time;
-}
+  sub ev ($aperture, $time)
+  {
+    return _round _log2 $aperture*$aperture/$time;
+  }
 
 =head2 aperture
 
@@ -133,10 +131,10 @@ f/5.6, f/8, f/11 and f/16, so to get the correct aperture for
 
 =cut
 
-sub aperture ($ev, $time, $apertures = \@apertures )
-{
-  return _closest sqrt pow(2, $ev)*$time, $apertures;
-}
+  sub aperture ($ev, $time, $apertures = \@apertures )
+  {
+    return _closest sqrt pow(2, $ev)*$time, $apertures;
+  }
 
 =head2 shutter_speed
 
@@ -161,9 +159,11 @@ the correct shutter speed for f/3.5 and EV 5:
 
 =cut
 
-sub shutter_speed ($ev, $aperture, $times = \@times )
-{
-  return _closest $aperture*$aperture/pow(2, $ev), $times;
+  sub shutter_speed ($ev, $aperture, $times = \@times )
+  {
+    return _closest $aperture*$aperture/pow(2, $ev), $times;
+  }
+
 }
 
 1;

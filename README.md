@@ -1,4 +1,4 @@
-# Photography::EV
+# Photography::EV [![Build Status](https://secure.travis-ci.org/plicease/Photography-EV.png)](http://travis-ci.org/plicease/Photography-EV)
 
 Calculate exposure value (EV)
 

@@ -6,7 +6,7 @@ package Photography::EV {
   use experimental 'signatures';
   use base qw( Exporter );
   BEGIN {
-    eval q{ 
+    eval q{
       use POSIX qw( pow );
     };
     if($@)
@@ -36,10 +36,10 @@ package Photography::EV {
 =head1 DESCRIPTION
 
 This module provides functions for calculating photographic
-exposure values.  Some light meters can give readings in 
-"Exposure Value" or EV.  On some cameras the exposure can 
-be locked into a specific Exposure Value (EV), such that 
-changing the aperture or shutter speed will adjust the 
+exposure values.  Some light meters can give readings in
+"Exposure Value" or EV.  On some cameras the exposure can
+be locked into a specific Exposure Value (EV), such that
+changing the aperture or shutter speed will adjust the
 shutter speed or aperture to maintain the same exposure.
 
 =cut
@@ -116,7 +116,7 @@ Returns the integer Exposure Value (EV).
  my $aperture = aperture($ev, $time, \@apertures);
 
 Returns the correct aperture corresponding to the given EV and
-shutter speed (in seconds).  By default returns the closest 
+shutter speed (in seconds).  By default returns the closest
 full stop aperture between 1 and 64.
 
 If the optional third argument is given (a reference to a list of
@@ -124,7 +124,7 @@ possible aperture values), then the returned aperture will be
 the closest possible from that list.  This is helpful, for example,
 when you are using a lens that provides fractions of a stop.  My
 Nikkor 50mm f/1.2 for example has stops at f/1.2, f/1.4, f/2, f/4
-f/5.6, f/8, f/11 and f/16, so to get the correct aperture for 
+f/5.6, f/8, f/11 and f/16, so to get the correct aperture for
 1/60 at EV 9 for that lens:
 
  my $aperture = aperture(9, 1/60, [1.2,1.4,2,4,5.6,8,11,16]);

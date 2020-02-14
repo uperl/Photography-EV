@@ -4,24 +4,8 @@ package Photography::EV {
   use warnings;
   use 5.020000;
   use experimental 'signatures';
+  use POSIX qw( pow );
   use base qw( Exporter );
-  BEGIN {
-    eval q{
-      use POSIX qw( pow );
-    };
-    if($@)
-    {
-      *pow = sub ($x, $exponent)
-      {
-        my $value = 1;
-        for(1..$exponent)
-        {
-          $value *= $x;
-        }
-        $value;
-      }
-    }
-  }
 
   our @EXPORT_OK = qw( ev aperture shutter_speed );
   our @EXPORT = @EXPORT_OK;

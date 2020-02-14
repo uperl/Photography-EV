@@ -4,8 +4,10 @@ Calculate exposure value (EV)
 
 # SYNOPSIS
 
-    use Photography::EV;
-    my $ev = ev(5.6, 1/1000); # EV for f/5.6 at 1/1000s
+```perl
+use Photography::EV;
+my $ev = ev(5.6, 1/1000); # EV for f/5.6 at 1/1000s
+```
 
 # DESCRIPTION
 
@@ -20,15 +22,19 @@ shutter speed or aperture to maintain the same exposure.
 
 ## ev
 
-    my $ev = ev($aperture, $time);
+```perl
+my $ev = ev($aperture, $time);
+```
 
 Takes the aperture (f-stop) and shutter speed (in seconds).
 Returns the integer Exposure Value (EV).
 
 ## aperture
 
-    my $aperture = aperture($ev, $time);
-    my $aperture = aperture($ev, $time, \@apertures);
+```perl
+my $aperture = aperture($ev, $time);
+my $aperture = aperture($ev, $time, \@apertures);
+```
 
 Returns the correct aperture corresponding to the given EV and
 shutter speed (in seconds).  By default returns the closest 
@@ -42,12 +48,16 @@ Nikkor 50mm f/1.2 for example has stops at f/1.2, f/1.4, f/2, f/4
 f/5.6, f/8, f/11 and f/16, so to get the correct aperture for 
 1/60 at EV 9 for that lens:
 
-    my $aperture = aperture(9, 1/60, [1.2,1.4,2,4,5.6,8,11,16]);
+```perl
+my $aperture = aperture(9, 1/60, [1.2,1.4,2,4,5.6,8,11,16]);
+```
 
 ## shutter\_speed
 
-    my $time = shutter_speed($ev, $aperture);
-    my $time = shutter_speed($ev, $aperture, \@times);
+```perl
+my $time = shutter_speed($ev, $aperture);
+my $time = shutter_speed($ev, $aperture, \@times);
+```
 
 Returns the correct shutter speed (in seconds) corresponding to
 the given EV and aperture.  By default returns the closest
@@ -62,8 +72,10 @@ At least some Rolleiflex TLRs have shutter speeds of 1, 2, 5, 10,
 25, 50, 100, 250, 500 instead of the modern values.  To get
 the correct shutter speed for f/3.5 and EV 5:
 
-    # map displayed shutter speed to 1/t to get time in seconds
-    my $time = shutter_speed(6, 3.5, [map { 1/$_ } 1, 2, 5, 10, 25, 50, 100, 250, 500]);
+```perl
+# map displayed shutter speed to 1/t to get time in seconds
+my $time = shutter_speed(6, 3.5, [map { 1/$_ } 1, 2, 5, 10, 25, 50, 100, 250, 500]);
+```
 
 # CAVEATS
 

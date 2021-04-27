@@ -1,4 +1,4 @@
-# Photography::EV [![Build Status](https://secure.travis-ci.org/plicease/Photography-EV.png)](http://travis-ci.org/plicease/Photography-EV) ![windows](https://github.com/plicease/Photography-EV/workflows/windows/badge.svg) ![macos](https://github.com/plicease/Photography-EV/workflows/macos/badge.svg)
+# Photography::EV ![linux](https://github.com/plicease/Photography-EV/workflows/linux/badge.svg) ![macos](https://github.com/plicease/Photography-EV/workflows/macos/badge.svg) ![windows](https://github.com/plicease/Photography-EV/workflows/windows/badge.svg) ![cygwin](https://github.com/plicease/Photography-EV/workflows/cygwin/badge.svg) ![msys2-mingw](https://github.com/plicease/Photography-EV/workflows/msys2-mingw/badge.svg)
 
 Calculate exposure value (EV)
 

@@ -1,4 +1,4 @@
-# Photography::EV ![linux](https://github.com/uperl/Photography-EV/workflows/linux/badge.svg) ![macos](https://github.com/uperl/Photography-EV/workflows/macos/badge.svg) ![windows](https://github.com/uperl/Photography-EV/workflows/windows/badge.svg) ![msys2-mingw](https://github.com/uperl/Photography-EV/workflows/msys2-mingw/badge.svg)
+# Photography::EV ![linux](https://github.com/uperl/Photography-EV/workflows/linux/badge.svg) ![macos](https://github.com/uperl/Photography-EV/workflows/macos/badge.svg) ![windows](https://github.com/uperl/Photography-EV/workflows/windows/badge.svg)
 
 Calculate exposure value (EV)
 

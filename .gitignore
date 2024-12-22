@@ -1,2 +1,4 @@
 /Photography-EV-*
 /.build
+*.old
+*.orig

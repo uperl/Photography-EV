@@ -1,4 +1,4 @@
-# Photography::EV ![linux](https://github.com/uperl/Photography-EV/workflows/linux/badge.svg) ![macos](https://github.com/uperl/Photography-EV/workflows/macos/badge.svg) ![windows](https://github.com/uperl/Photography-EV/workflows/windows/badge.svg) ![cygwin](https://github.com/uperl/Photography-EV/workflows/cygwin/badge.svg) ![msys2-mingw](https://github.com/uperl/Photography-EV/workflows/msys2-mingw/badge.svg)
+# Photography::EV ![linux](https://github.com/uperl/Photography-EV/workflows/linux/badge.svg) ![macos](https://github.com/uperl/Photography-EV/workflows/macos/badge.svg) ![windows](https://github.com/uperl/Photography-EV/workflows/windows/badge.svg) ![msys2-mingw](https://github.com/uperl/Photography-EV/workflows/msys2-mingw/badge.svg)
 
 Calculate exposure value (EV)
 
@@ -92,7 +92,7 @@ Graham Ollis <plicease@cpan.org>
 
 # COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2015 by Graham Ollis.
+This software is copyright (c) 2015-2024 by Graham Ollis.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
